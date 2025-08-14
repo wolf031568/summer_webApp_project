@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Engineering Social Register</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; flex-direction: column;">
+
+  <h1>Welcome to Engineering Social!</h1>
+  <h2>Please register to continue</h2>
+
+  {% if messages %}
+    <ul style="color: red;">
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <form method="POST" action="{% url 'register' %}" style="width: 300px; margin-top: 20px;">
+    {% csrf_token %}
+    <div style="margin-bottom: 15px;">
+      <label for="username" style="font-size: 16px; display: block; margin-bottom: 5px;">Email</label>
+      <input type="text" name="username" id="username" style="font-size: 14px; padding: 8px; width: 100%;" required>
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="password" style="font-size: 16px; display: block; margin-bottom: 5px;">Password</label>
+      <input type="password" name="password" id="password" style="font-size: 14px; padding: 8px; width: 100%;" required>
+    </div>
+
+    <button type="submit" style="font-size: 14px; padding: 8px 12px; width: 100%;">Register</button>
+  </form>
+
+  <a href="{% url 'login' %}" style="margin-top: 15px; text-decoration: none;">
+    <button style="font-size: 14px; padding: 8px 12px; width: 150px;">Login</button>
+  </a>
+</body>
+</html>
