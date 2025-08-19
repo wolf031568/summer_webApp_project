@@ -1,12 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
-class users(models.Model):
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
-    email = models.CharField(max_length=30, unique=True)
-    phone = models.CharField(max_length=10)
-    password = models.CharField(max_length=128)  # store hashed passwords ideally
+class Users(models.Model):  
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='custom_user')
+    created_at = models.DateTimeField(auto_now_add=True)
+    phone = models.CharField(max_length=10, blank=True, null=True)
+    major = models.CharField(max_length=30, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.user.first_name} {self.user.last_name}"

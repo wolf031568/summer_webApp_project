@@ -16,11 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from users import views as user_views
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', user_views.login_view, name='login'),
-    path('users/', include('users.urls')), 
-    path('EngineeringSocialApp/', include('EngineeringSocialApp.urls')), 
+    path('admin/', admin.site.urls),  # Admin interface
+    path('EngineeringSocialApp/', include('EngineeringSocialApp.urls')),  # Include URLs from EngineeringSocialApp
 ]
 
