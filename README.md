@@ -8,24 +8,24 @@ Setup:
 
 1. Clone repository
 
-git clone (https://github.com/wolf031568/summer_webApp_project.git)
+  git clone (https://github.com/wolf031568/summer_webApp_project.git)
 
-cd summer_webApp_project
+  cd summer_webApp_project
 
 2. setup virtual environment
 
-python -m venv virt
+  python -m venv virt
 
-virt\bin\activate
+  virt\bin\activate
 
 3. install django
 
-pip install django
+  pip install django
 
 4. apply migrations
 
-python manage.py migrate
+  python manage.py migrate
 
 5. run server
 
-python manage.py runserver
+  python manage.py runserver
