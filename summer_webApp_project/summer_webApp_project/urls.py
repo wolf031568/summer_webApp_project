@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),  # Admin interface
     path('EngineeringSocialApp/', include('EngineeringSocialApp.urls')),  # Include URLs from EngineeringSocialApp
+    path( '', include('EngineeringSocialApp.urls')),
 ]
 
