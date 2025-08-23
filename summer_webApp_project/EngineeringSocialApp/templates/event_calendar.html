@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="margin-top: 40px;">
+  <h1>Event Calendar</h1>
+  <p>All upcoming events for UTRGV engineers:</p>
+
+  {% if events %}
+    <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Created By</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for event in events %}
+        <tr>
+          <td>{{ event.title }}</td>
+          <td>{{ event.description|default:"No description" }}</td>
+          <td>{{ event.date|date:"M d, Y " }}</td>
+          <td>{{ event.created_by.username }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No events scheduled yet.</p>
+  {% endif %}
+</div>
+{% endblock %}
